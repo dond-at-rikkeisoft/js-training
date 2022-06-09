@@ -18,7 +18,11 @@ const snt = (a) => {
     
 }
 
+<<<<<<< Updated upstream
 var result = [] // mảng lưu kết quả
+=======
+var result = []
+>>>>>>> Stashed changes
 for (let i = 0 ; i <= 100000 ; i++){
     if (snt(i) == true){
         result.push(i)
