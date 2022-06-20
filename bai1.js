@@ -1,11 +1,11 @@
-const snt = (a) => {
-    if (a < 2){
+const prime = (number) => {
+    if (number < 2){
         return false
     }
     else{
         let count = 0;
-        for (var i = 2 ; i <= Math.sqrt(a); i++){
-            if (a % i == 0){
+        for (var i = 2 ; i <= Math.sqrt(number); i++){
+            if (number % i == 0){
                 count ++
             }
         }
@@ -17,14 +17,9 @@ const snt = (a) => {
     }
     
 }
-
-<<<<<<< Updated upstream
-var result = [] // mảng lưu kết quả
-=======
-var result = []
->>>>>>> Stashed changes
+var result = [] 
 for (let i = 0 ; i <= 100000 ; i++){
-    if (snt(i) == true){
+    if (prime(i) == true){
         result.push(i)
     }
 }

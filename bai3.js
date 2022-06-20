@@ -19,5 +19,3 @@ function result (x){
         console.log("Not Palindrome Number!")
     }
 }
-
-result(1221)
