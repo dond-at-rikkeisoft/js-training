@@ -1,25 +1,40 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Card from "react-bootstrap/Card"
 
-const BookDetail = () => {
+import {useQuery} from '@apollo/client';
+import {getBook} from '../graphql-client/queries'
+
+
+const BookDetail = ({idBook}) => {
+    const {loading, error, data} = useQuery(getBook, {
+        variables: {
+            id: idBook
+        }
+    })
+
+    if(loading) return <p>Loading book details...</p>
+    if(idBook == null) return <p>Choose one book to view details!</p>
+    if(idBook !== null && error) return <p>Errors loading book details!</p>
   return (
     <Card className='shadow' bg='info' text='white'>
         <Card.Body>
-            <Card.Title>Ky nghe lay Tay</Card.Title>
+            <Card.Title>{data.book.name}</Card.Title>
             <Card.Subtitle>
-                Phong su
+                {data.book.genre ? data.book.genre : 'abc'}
             </Card.Subtitle>
-            <Card.Text>
-                <p>Vu Trong Phung</p>
+                <p>Author: {data.book.author.name}</p>
                 <p>
-                    99
+                    Age: {data.book.author.age}
                 </p>
                 <p>List books :</p>
                 <ul>
-                    <li>So do</li>
-                    <li>Ky nghe lay tay</li>
+                {
+                    data.book.author.books.map(book =>  (
+                            <li key={book.id}>{book.name}</li>
+                    ))
+                }
                 </ul>
-            </Card.Text>
+                
         </Card.Body>
       
     </Card>
