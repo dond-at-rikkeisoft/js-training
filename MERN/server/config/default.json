@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://congtuyen295:29092000ct@cluster0.hhr8mon.mongodb.net/?retryWrites=true&w=majority",
+    "jwtSecret": "jsonwwebtoken123"
+}
