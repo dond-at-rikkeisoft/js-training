@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://trang452k:trang452k@mern.94svp.mongodb.net/?retryWrites=true&w=majority",
+    "jwtSecret": "jsonwwebtoken123"
+}
